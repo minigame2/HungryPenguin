@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayScreen.unity
     guid: 826078b54735648f7ae4718c49927b64
   - enabled: 1
-    path: Assets/Scenes/WonScreen.unity
-    guid: 4893e43a64b1c455b93edcab08c62779
-  - enabled: 1
     path: Assets/Scenes/GameOverScreen.unity
     guid: 212cd292bb9244bc093fe5f7e75e3bae
+  - enabled: 1
+    path: Assets/Scenes/WonScreen.unity
+    guid: 4893e43a64b1c455b93edcab08c62779
   m_configObjects: {}
