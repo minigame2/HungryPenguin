@@ -1,6 +1,6 @@
 # HungryPenguin
 
-Progress in %:  10% finished 
+Progress in %:  40% finished 
 <br>
                 Konzept ist fertig 
 <br>
@@ -11,6 +11,19 @@ Progress in %:  10% finished
                 [Pp]ackages bei .gitignore geadded
 <br>
                 .DSStore bei .gitignore geadded
+<br>
+                Unity-Projekt ist angelegt
+<br>                
+                Scenes wurden angelegt
+<br>                
+                Player beweget sich in, x-Richtung durch Steuerung, y-Richtung durch Gravity
+                (PlayerController-Script inspiriert von Caro)
+<br>
+                Collider von Player & Background wurden angelegt
+<br>                
+                SceneLoader funktionieren
+                
+
 
 Bei „HungryPenguin“ ist das Ziel den Pinguin zu füttern, indem man so viele Fische wie möglich sammelt. Der Pinguin kann sich nach links und rechts Bewegen und man muss versuchen ihn so zu steuern, dass er auf einer Plattform mit einem Fisch zu landen kommt.   Jedoch sind die Plattformen kein fixes Element sondern bewegen sich mittels Spawner(Random) ebenfalls auf der x-Achse hin und her. Es gibt aber auch gewisse Plattformen die nach oben schweben, somit kommt man in der Scene wieder nach oben.
 Hat man innerhalb der 60sec. weniger als 3 Fische gesammelt, verhungert der Pinguin und man hat das Game verloren. 
