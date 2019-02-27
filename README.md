@@ -21,7 +21,7 @@ Progress in %:  40% finished
 <br>
                 Collider von Player & Background wurden angelegt
 <br>                
-                SceneLoader funktionieren
+                SceneLoader funktionieren (ContactWithFloor-Script inspiriert von Clea)
                 
 
 
