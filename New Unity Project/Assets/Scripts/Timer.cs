@@ -4,8 +4,6 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     private TextMeshProUGUI watch;
-    private float timer;
-    private int interval = 10;
     public const int duration = 60;
     public int timeRemaining;
     public bool isCountingDown = false;
@@ -17,7 +15,6 @@ public class Timer : MonoBehaviour
             isCountingDown = true;
             timeRemaining = duration;
             Invoke("CountingDown", 1f);
-            Debug.Log("CountingDown");
         }
     }
 
@@ -27,7 +24,6 @@ public class Timer : MonoBehaviour
         if (timeRemaining > 0)
         {
             Invoke("CountingDown", 1f);
-            Debug.Log("Invoke" + timeRemaining);
             watch.text = "" +timeRemaining.ToString("00:00");
         }
         else
