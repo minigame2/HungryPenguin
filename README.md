@@ -1,6 +1,6 @@
 # HungryPenguin
 
-Progress in %:  40% finished 
+Progress in %:  60% finished 
 <br>
                 Konzept ist fertig 
 <br>
@@ -22,6 +22,7 @@ Progress in %:  40% finished
                 Collider von Player & Background wurden angelegt
 <br>                
                 SceneLoader funktionieren (ContactWithFloor-Script inspiriert von Clea)
+                Timer funktioniert und zählt von 1:00 bis 0 herunter
                 
 
 
