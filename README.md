@@ -22,6 +22,7 @@ Progress in %:  60% finished
                 Collider von Player & Background wurden angelegt
 <br>                
                 SceneLoader funktionieren (ContactWithFloor-Script inspiriert von Clea)
+<br>
                 Timer funktioniert und zählt von 1:00 bis 0 herunter
                 
 
