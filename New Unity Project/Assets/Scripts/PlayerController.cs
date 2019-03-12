@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private const string AXISHORIZONTAL = "Horizontal";
 
     //configruation parameters
-    public float moveSpeed = 8.0f;
+    public float moveSpeed = 6f;
     public float xMin = -8.0f, xMax = 8.0f;
 
     // Use this for initialization
