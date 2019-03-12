@@ -36,8 +36,6 @@ public class Timer : MonoBehaviour
         }
     }
 
-
-   
     // Use this for initialization
     void Start()
     {
@@ -45,27 +43,4 @@ public class Timer : MonoBehaviour
         watch = gameObject.GetComponent<TextMeshProUGUI>();
         watch.text = "01:00";
     }
-
-    //private void Update()
-    //{
-    //    CountingDown();
-    //    Debug.Log("UpdateCountDown" + timeRemaining);
-    //}
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    timer += Time.deltaTime;
-    //    watch.text = string.Format("{0:00}:{1:00}",
-    //        Mathf.Floor(timer / 60),
-    //        Mathf.Floor(timer) % 60);
-    //    Debug.Log("Timer" + timer);
-
-    //    if (timer > interval)
-    //    {
-    //        //GlobalVariables.speed = GlobalVariables.speed - 1f;
-    //        interval = interval - 10;
-    //        Debug.Log("Interval" + interval);
-    //    }
-    //}
 }
