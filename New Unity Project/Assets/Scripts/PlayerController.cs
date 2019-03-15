@@ -6,33 +6,42 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 6f;
     public float xMin = -8.0f, xMax = 8.0f;
+    public DataContainer dataContainer;
 
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        Move();
+        dataContainer.ResetData();
     }
 
-    private void Move()
+    void Update ()
     {
-        var deltaX = Input.GetAxis(AXISHORIZONTAL) * Time.deltaTime * moveSpeed;
-        var newPosX = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-
-        transform.position = new Vector2(newPosX, transform.position.y);
+        Move ();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Move ()
     {
-        if(collision.name == "ColliderBottom" && gameObject.tag == "Player")
+        var deltaX = Input.GetAxis (AXISHORIZONTAL) * Time.deltaTime * moveSpeed;
+        var newPosX = Mathf.Clamp (transform.position.x + deltaX, xMin, xMax);
+
+        transform.position = new Vector2 (newPosX, transform.position.y);
+    }
+
+    private void OnTriggerEnter2D (Collider2D collision)
+    {
+        if (collision.name == "ColliderBottom" && gameObject.tag == "Player")
         {
-            Debug.Log("Destroy");
+            Debug.Log ("Destroy");
             Destroy(gameObject);
         }
-        else if(collision.name == "ColliderTop" && gameObject.tag == "Player")
+        else if (collision.name == "ColliderTop" && gameObject.tag == "Player")
         {
             Debug.Log("Destroy");
-            Destroy(gameObject);
+            Destroy (gameObject);
+        }
+        else if (collision.tag == "Fish" && gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+            dataContainer.AddToScore(100);
         }
     }
 }

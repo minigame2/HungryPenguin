@@ -26,13 +26,24 @@ public class Icesheet : MonoBehaviour {
         fishPosX = 0.0f;
         fishPosY = 2.4f;
 
-       InstantiateFischOnSheet(GetFishPosition());
-       // Debug.Log("after fish instantiate: " + this.transform.position);
+        RandomInstantiateFishOnSheet();
+      // InstantiateFischOnSheet(GetFishPosition());
+      // Debug.Log("after fish instantiate: " + this.transform.position);
     }
 
+    private void RandomInstantiateFishOnSheet()
+    {
+        float rand = Random.Range(1, 5);
+        Debug.Log("RAND: "+rand);
+        if (rand > 2)
+        {
+            InstantiateFischOnSheet(GetFishPosition());
+        }
+
+        
+    }
    private void Update ()
     {
-
         if (gameObject.tag == "IcesheetUnderground")
         {
             MovePlatformToSky (speed, direction);
@@ -40,7 +51,6 @@ public class Icesheet : MonoBehaviour {
         }
 
         MovePlatform (speed, direction);
-        
     }
 
     private Vector2 GetFishPosition ()
@@ -56,6 +66,7 @@ public class Icesheet : MonoBehaviour {
         { 
             tmpDir =  1;
         }
+
         return tmpDir;
     }
 
@@ -100,6 +111,4 @@ public class Icesheet : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
-   
 }
