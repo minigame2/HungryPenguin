@@ -1,44 +1,63 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Icesheet : MonoBehaviour {
+
+    private const string ICESHEETLEFT = "IcesheetLeft";
+
+    public GameObject fish;
 
     public float speed;
     public int direction;
     public float minPosLeft;
     public float maxPosRight;
+    public float minPosBottom;
+    public float maxPosTop;
     public float padding;
     public float startx;
+    public float fishPosX, fishPosY;
 
-
-    // Use this for initialization
-    void Start () 
+    private void Start () 
     {
         speed = 1f;
         direction = SetUpDirection();
-        minPosLeft = -7.5f;
-        maxPosRight = 7.5f;
-        padding = 2f;
-    }
-	
-    private int SetUpDirection() 
-    {
-        if (gameObject.tag == "IcesheetLeft") 
-        { 
-            return 1;
-        }
-        else 
-        {
-            return -1;
-        }
+        minPosLeft = -13.0f;
+        maxPosRight = 13.0f;
+        padding = 2.0f;
+        fishPosX = 0.0f;
+        fishPosY = 2.4f;
+
+       InstantiateFischOnSheet(GetFishPosition());
+       // Debug.Log("after fish instantiate: " + this.transform.position);
     }
 
-    // Update is called once per frame
-    void Update () 
+   private void Update ()
     {
-        MovePlatform(speed, direction);	
-	}
+
+        if (gameObject.tag == "IcesheetUnderground")
+        {
+            MovePlatformToSky (speed, direction);
+            return;
+        }
+
+        MovePlatform (speed, direction);
+        
+    }
+
+    private Vector2 GetFishPosition ()
+    {
+        return new Vector2 (fishPosX, fishPosY);
+    }
+
+    private int SetUpDirection() 
+    {
+        int tmpDir = -1;
+        
+        if (gameObject.tag == ICESHEETLEFT) 
+        { 
+            tmpDir =  1;
+        }
+        return tmpDir;
+    }
 
     public void MovePlatform(float mySpeed, int myDirection)
     {
@@ -47,4 +66,40 @@ public class Icesheet : MonoBehaviour {
         transform.position = new Vector2(newPosX, transform.position.y);
     }
 
+
+    public void MovePlatformToSky(float mySpeed, int myDirection)
+    {
+        var deltaY = Time.deltaTime * speed;
+        var newPosY = Mathf.Clamp(transform.position.y + deltaY, minPosBottom, maxPosTop);
+        Debug.Log(newPosY);
+        transform.position = new Vector2(transform.position.x, newPosY);
+    }
+
+    public void InstantiateFischOnSheet(Vector2 icesheetPos)
+    {
+        Debug.Log("Instanziate transform" + this.transform.position);
+        GameObject go = Instantiate(fish, new Vector3(0.0f,0.0f,0.0f), Quaternion.identity,this.transform);
+        go.gameObject.transform.localPosition = GetFishPosition();
+        Debug.Log("transform of GO: " + go.transform.position);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Collision: " + gameObject.name + "" + collision.gameObject.name);
+        if (gameObject.name == "IcesheetBottom" && collision.name == "ColliderTop" )
+        {
+            Destroy(gameObject);
+        }
+        else if(gameObject.name == "IcesheetLeft" && collision.name == "ColliderRight")
+        {
+            Destroy(gameObject);
+        }
+        else if(gameObject.name == "IcesheetRight" && collision.name == "ColliderLeft")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+   
 }

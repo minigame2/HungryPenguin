@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-
     enum Scenes { IntroScreen, PlayScreen, GameOverScreen, WonScreen };
 
     public void LoadIntroScene()

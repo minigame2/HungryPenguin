@@ -14,5 +14,10 @@ public class ContactWithFloor : MonoBehaviour
         {
             SceneLoader.LoadGameOverScene();
         }
+
+        if (collision.tag == TAGPLAYER && gameObject.tag == "Sky")
+        {
+            SceneLoader.LoadGameOverScene();
+        }
     }
 }

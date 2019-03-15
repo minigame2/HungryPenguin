@@ -8,6 +8,8 @@ TagManager:
   - IcesheetRight
   - IcesheetLeft
   - Timer
+  - IcesheetUnderground
+  - Sky
   layers:
   - Default
   - TransparentFX
